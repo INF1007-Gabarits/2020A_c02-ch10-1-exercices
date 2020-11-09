@@ -68,12 +68,12 @@ Indices:
 
 En acoustique et en musique, une note est une onde composée d'une fréquence fondamentale et d'ondes dont la fréquence est un multiple entier de la fondamentale ([ses harmoniques](https://en.wikipedia.org/wiki/Harmonic_series_(music))).
 
-Générez un signal sinusoïdal avec ses harmoniques qui sont passé en paramètre.
+Générez un signal sinusoïdal avec ses harmoniques qui sont passées en paramètre.
 
 Par exemple, en faisant :
 
 ```python
-sig = sine_with_overtones(440, ((2, 0.5), (3, 0.25), (4, 0.1))
+sig = sine_with_overtones(440, ((2, 0.5), (3, 0.25), (4, 0.1)))
 ```
 
 On obtiendrait un signal dont la fondamentale est 440 Hz, et dont la première harmonique (ou *partielle* si on veut être pédantique) est 2 fois la fréquence fondamentale et moitié moins forte. La deuxième harmonique est trois fois la fondamentale et 25% aussi fort, etc.
