@@ -25,7 +25,7 @@ def separate_channels(samples, num_channels):
 
 def generate_sample_time_points(duration):
 	# Générer un tableau de points temporels également espacés en seconde. On a SAMPLING_FREQ points par seconde.
-	return np.arange(0.0, duration * SAMPLING_FREQ) / SAMPLING_FREQ
+	pass
 
 def sine(freq, amplitude, duration):
 	# Générer une onde sinusoïdale à partir de la fréquence et de l'amplitude donnée, sur le temps demandé et considérant le taux d'échantillonnage.
@@ -33,37 +33,29 @@ def sine(freq, amplitude, duration):
 	# y = A * sin(F * x), où x est en radian.
 	# Si on veut le x qui correspond au moment t, on peut dire que 2π représente une seconde, donc x = t * 2π,
 	# Or t est en secondes, donc t = i / nb_échantillons_par_secondes, où i est le numéro d'échantillon.
-	time_points = generate_sample_time_points(duration)
-	return amplitude * np.sin(freq * 2 * np.pi * time_points)
+	pass
 
 def square(freq, amplitude, duration):
 	# Générer une onde carrée d'une fréquence et amplitude donnée.
-	time_points = generate_sample_time_points(duration)
-	return amplitude * np.sign(sine(freq, 1, duration))
+	pass
 
 def sine_with_overtones(root_freq, amplitude, overtones, duration):
 	# Générer une onde sinusoïdale avec ses harmoniques. Le paramètre overtones est une liste de tuple où le premier élément est le multiple de la fondamentale et le deuxième élément est l'amplitude relative de l'harmonique.
-	signal = sine(root_freq, amplitude, duration)
-	for freq_factor, amp_factor in overtones:
-		overtone = sine(root_freq * freq_factor, amplitude * amp_factor, duration)
-		np.add(signal, overtone, out=root)
-	return signal
+	pass
 
 def normalize(samples, norm_target):
 	# Normalisez un signal à l'amplitude donnée
-	max_sample = max(np.abs(samples))
-	gain = norm_target / max_sample
-	return samples * gain
+	pass
 
 def convert_to_bytes(samples):
 	# Convertir les échantillons en tableau de bytes en les convertissant en entiers 16 bits.
 	# Les échantillons en entrée sont entre -1 et 1, nous voulons les mettre entre -MAX_SAMPLE_VALUE et MAX_SAMPLE_VALUE
 	# Juste pour être certain de ne pas avoir de problème, on doit clamper les valeurs d'entrée entre -1 et 1.
-	return np.round(np.clip(samples, -1, 1) * MAX_INT_SAMPLE_VALUE).astype("<i2").tobytes()
+	pass
 
 def convert_to_samples(bytes):
 	# Faire l'opération inverse de convert_to_bytes, en convertissant des échantillons entier 16 bits en échantillons réels
-	return np.frombuffer(bytes, dtype="<i2").astype(float) / MAX_INT_SAMPLE_VALUE
+	pass
 
 
 def main():
